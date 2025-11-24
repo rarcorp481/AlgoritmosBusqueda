@@ -9,6 +9,8 @@ namespace AlgoritmosBusqueda
 
         List<Estudiante> listaEstudiantes = new List<Estudiante>();
 
+        List<int> listaMinMax = new List<int>();
+
         int[,] matrizGlobal = new int[10, 10];
 
         public FrmPrincipal()
@@ -283,7 +285,8 @@ namespace AlgoritmosBusqueda
 
                 if (!encontrado) MessageBox.Show("ID no encontrado.");
             }
-            else             {
+            else
+            {
                 MessageBox.Show("Ingrese un ID válido.");
             }
         }
@@ -331,7 +334,64 @@ namespace AlgoritmosBusqueda
 
             if (!encontrado) MessageBox.Show("Nombre no encontrado.");
         }
+
+
+
+
+
+        //Ejercicio 5: Búsqueda de valor máximo y mínimo en una lista
+        private void btnGenerarMinMax_Click(object sender, EventArgs e)
+        {
+            lstNumerosMinMax.Items.Clear();
+            listaMinMax.Clear();
+            Random rnd = new Random();
+
+            for (int i = 0; i < 20; i++)
+            {
+                int numero = rnd.Next(1, 1000);
+                listaMinMax.Add(numero);
+                lstNumerosMinMax.Items.Add(numero);
+            }
+
+            lblResultadosMinMax.Text = "Resultados: (Esperando cálculo...)";
+        }
+
+        private void btnCalcularMinMax_Click(object sender, EventArgs e)
+        {
+            if (listaMinMax.Count == 0)
+            {
+                MessageBox.Show("Primero genera la lista.");
+                return;
+            }
+
+            // Inicializamos con el primer elemento para asegurar que el valor sea válido
+            int maximo = listaMinMax[0];
+            int minimo = listaMinMax[0];
+            int iteraciones = 0;
+
+            foreach (int numero in listaMinMax)
+            {
+                iteraciones++;
+
+                if (numero > maximo)
+                {
+                    maximo = numero;
+                }
+
+                if (numero < minimo)
+                {
+                    minimo = numero;
+                }
+            }
+
+            lblResultadosMinMax.Text = $"Valor Máximo: {maximo}\nValor Mínimo: {minimo}\nIteraciones: {iteraciones}";
+        }
+
+
+
+
     }
+
 
 }
 

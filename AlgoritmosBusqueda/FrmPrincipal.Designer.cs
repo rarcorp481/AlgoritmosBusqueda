@@ -63,12 +63,18 @@ namespace AlgoritmosBusqueda
             txtObjetoInput = new TextBox();
             lstEstudiantes = new ListBox();
             ValueSearch = new TabPage();
+            lblResultadosMinMax = new Label();
+            label10 = new Label();
+            btnGenerarMinMax = new Button();
+            btnCalcularMinMax = new Button();
+            lstNumerosMinMax = new ListBox();
             MatrixSearch = new TabPage();
             TabControl1.SuspendLayout();
             LinearSearch.SuspendLayout();
             BinarySearch.SuspendLayout();
             TextSearch.SuspendLayout();
             ObjectSearch.SuspendLayout();
+            ValueSearch.SuspendLayout();
             SuspendLayout();
             // 
             // TabControl1
@@ -424,14 +430,65 @@ namespace AlgoritmosBusqueda
             // 
             // ValueSearch
             // 
+            ValueSearch.Controls.Add(lblResultadosMinMax);
+            ValueSearch.Controls.Add(label10);
+            ValueSearch.Controls.Add(btnGenerarMinMax);
+            ValueSearch.Controls.Add(btnCalcularMinMax);
+            ValueSearch.Controls.Add(lstNumerosMinMax);
             ValueSearch.Location = new Point(4, 29);
             ValueSearch.Name = "ValueSearch";
             ValueSearch.Padding = new Padding(3);
             ValueSearch.Size = new Size(852, 591);
             ValueSearch.TabIndex = 4;
-            ValueSearch.Text = "Valor mínimo y Máximo";
+            ValueSearch.Text = "Valor Mínimo y Máximo";
             ValueSearch.UseVisualStyleBackColor = true;
             ValueSearch.Click += ValueSearch_Click;
+            // 
+            // lblResultadosMinMax
+            // 
+            lblResultadosMinMax.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblResultadosMinMax.Location = new Point(534, 310);
+            lblResultadosMinMax.Name = "lblResultadosMinMax";
+            lblResultadosMinMax.Size = new Size(229, 163);
+            lblResultadosMinMax.TabIndex = 14;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.Location = new Point(97, 31);
+            label10.Name = "label10";
+            label10.Size = new Size(151, 25);
+            label10.TabIndex = 13;
+            label10.Text = "Lista de números:";
+            // 
+            // btnGenerarMinMax
+            // 
+            btnGenerarMinMax.Location = new Point(534, 81);
+            btnGenerarMinMax.Name = "btnGenerarMinMax";
+            btnGenerarMinMax.Size = new Size(229, 87);
+            btnGenerarMinMax.TabIndex = 12;
+            btnGenerarMinMax.Text = "Generar Lista";
+            btnGenerarMinMax.UseVisualStyleBackColor = true;
+            btnGenerarMinMax.Click += btnGenerarMinMax_Click;
+            // 
+            // btnCalcularMinMax
+            // 
+            btnCalcularMinMax.Location = new Point(534, 187);
+            btnCalcularMinMax.Name = "btnCalcularMinMax";
+            btnCalcularMinMax.Size = new Size(229, 87);
+            btnCalcularMinMax.TabIndex = 11;
+            btnCalcularMinMax.Text = "Calcular Min y Max";
+            btnCalcularMinMax.UseVisualStyleBackColor = true;
+            btnCalcularMinMax.Click += btnCalcularMinMax_Click;
+            // 
+            // lstNumerosMinMax
+            // 
+            lstNumerosMinMax.FormattingEnabled = true;
+            lstNumerosMinMax.Location = new Point(97, 81);
+            lstNumerosMinMax.Name = "lstNumerosMinMax";
+            lstNumerosMinMax.Size = new Size(373, 464);
+            lstNumerosMinMax.TabIndex = 9;
             // 
             // MatrixSearch
             // 
@@ -461,6 +518,8 @@ namespace AlgoritmosBusqueda
             TextSearch.PerformLayout();
             ObjectSearch.ResumeLayout(false);
             ObjectSearch.PerformLayout();
+            ValueSearch.ResumeLayout(false);
+            ValueSearch.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -503,5 +562,10 @@ namespace AlgoritmosBusqueda
         private Button btnCargarEstudiantes;
         private TextBox txtObjetoInput;
         private ListBox lstEstudiantes;
+        private Button btnGenerarMinMax;
+        private Button btnCalcularMinMax;
+        private ListBox lstNumerosMinMax;
+        private Label lblResultadosMinMax;
+        private Label label10;
     }
 }
