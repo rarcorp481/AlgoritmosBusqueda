@@ -38,6 +38,8 @@ namespace AlgoritmosBusqueda
             txtLinealInput = new TextBox();
             lstLineal = new ListBox();
             BinarySearch = new TabPage();
+            label5 = new Label();
+            lstPasosBinaria = new ListBox();
             btnGenerarBinaria = new Button();
             btnBuscarBinaria = new Button();
             label3 = new Label();
@@ -48,8 +50,6 @@ namespace AlgoritmosBusqueda
             ObjectSearch = new TabPage();
             ValueSearch = new TabPage();
             MatrixSearch = new TabPage();
-            lstPasosBinaria = new ListBox();
-            label5 = new Label();
             TabControl1.SuspendLayout();
             LinearSearch.SuspendLayout();
             BinarySearch.SuspendLayout();
@@ -133,6 +133,7 @@ namespace AlgoritmosBusqueda
             txtLinealInput.Name = "txtLinealInput";
             txtLinealInput.Size = new Size(268, 27);
             txtLinealInput.TabIndex = 1;
+            txtLinealInput.TextChanged += txtLinealInput_TextChanged;
             // 
             // lstLineal
             // 
@@ -141,6 +142,7 @@ namespace AlgoritmosBusqueda
             lstLineal.Name = "lstLineal";
             lstLineal.Size = new Size(373, 464);
             lstLineal.TabIndex = 0;
+            lstLineal.SelectedIndexChanged += lstLineal_SelectedIndexChanged;
             // 
             // BinarySearch
             // 
@@ -161,6 +163,25 @@ namespace AlgoritmosBusqueda
             BinarySearch.UseVisualStyleBackColor = true;
             BinarySearch.Click += BinarySearch_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(424, 392);
+            label5.Name = "label5";
+            label5.Size = new Size(131, 20);
+            label5.TabIndex = 14;
+            label5.Text = "Historial de pasos:";
+            // 
+            // lstPasosBinaria
+            // 
+            lstPasosBinaria.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lstPasosBinaria.FormattingEnabled = true;
+            lstPasosBinaria.Location = new Point(424, 434);
+            lstPasosBinaria.Name = "lstPasosBinaria";
+            lstPasosBinaria.Size = new Size(375, 124);
+            lstPasosBinaria.TabIndex = 13;
+            lstPasosBinaria.SelectedIndexChanged += lstPasosBinaria_SelectedIndexChanged;
+            // 
             // btnGenerarBinaria
             // 
             btnGenerarBinaria.Location = new Point(493, 157);
@@ -169,6 +190,7 @@ namespace AlgoritmosBusqueda
             btnGenerarBinaria.TabIndex = 12;
             btnGenerarBinaria.Text = "Generar 30 números:";
             btnGenerarBinaria.UseVisualStyleBackColor = true;
+            btnGenerarBinaria.Click += btnGenerarBinaria_Click;
             // 
             // btnBuscarBinaria
             // 
@@ -178,6 +200,7 @@ namespace AlgoritmosBusqueda
             btnBuscarBinaria.TabIndex = 11;
             btnBuscarBinaria.Text = "Buscar número";
             btnBuscarBinaria.UseVisualStyleBackColor = true;
+            btnBuscarBinaria.Click += btnBuscarBinaria_Click;
             // 
             // label3
             // 
@@ -204,6 +227,7 @@ namespace AlgoritmosBusqueda
             txtBinariaInput.Name = "txtBinariaInput";
             txtBinariaInput.Size = new Size(268, 27);
             txtBinariaInput.TabIndex = 8;
+            txtBinariaInput.TextChanged += txtBinariaInput_TextChanged;
             // 
             // lstBinaria
             // 
@@ -214,13 +238,14 @@ namespace AlgoritmosBusqueda
             lstBinaria.Name = "lstBinaria";
             lstBinaria.Size = new Size(334, 487);
             lstBinaria.TabIndex = 7;
+            lstBinaria.SelectedIndexChanged += lstBinaria_SelectedIndexChanged;
             // 
             // TextSearch
             // 
             TextSearch.Location = new Point(4, 29);
             TextSearch.Name = "TextSearch";
             TextSearch.Padding = new Padding(3);
-            TextSearch.Size = new Size(941, 556);
+            TextSearch.Size = new Size(852, 591);
             TextSearch.TabIndex = 2;
             TextSearch.Text = "Texto";
             TextSearch.UseVisualStyleBackColor = true;
@@ -231,7 +256,7 @@ namespace AlgoritmosBusqueda
             ObjectSearch.Location = new Point(4, 29);
             ObjectSearch.Name = "ObjectSearch";
             ObjectSearch.Padding = new Padding(3);
-            ObjectSearch.Size = new Size(941, 556);
+            ObjectSearch.Size = new Size(852, 591);
             ObjectSearch.TabIndex = 3;
             ObjectSearch.Text = "Objeto";
             ObjectSearch.UseVisualStyleBackColor = true;
@@ -242,7 +267,7 @@ namespace AlgoritmosBusqueda
             ValueSearch.Location = new Point(4, 29);
             ValueSearch.Name = "ValueSearch";
             ValueSearch.Padding = new Padding(3);
-            ValueSearch.Size = new Size(941, 556);
+            ValueSearch.Size = new Size(852, 591);
             ValueSearch.TabIndex = 4;
             ValueSearch.Text = "Valor mínimo y Máximo";
             ValueSearch.UseVisualStyleBackColor = true;
@@ -253,29 +278,11 @@ namespace AlgoritmosBusqueda
             MatrixSearch.Location = new Point(4, 29);
             MatrixSearch.Name = "MatrixSearch";
             MatrixSearch.Padding = new Padding(3);
-            MatrixSearch.Size = new Size(941, 556);
+            MatrixSearch.Size = new Size(852, 591);
             MatrixSearch.TabIndex = 5;
             MatrixSearch.Text = "Matriz 2D";
             MatrixSearch.UseVisualStyleBackColor = true;
             MatrixSearch.Click += MatrixSearch_Click;
-            // 
-            // lstPasosBinaria
-            // 
-            lstPasosBinaria.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lstPasosBinaria.FormattingEnabled = true;
-            lstPasosBinaria.Location = new Point(424, 434);
-            lstPasosBinaria.Name = "lstPasosBinaria";
-            lstPasosBinaria.Size = new Size(375, 124);
-            lstPasosBinaria.TabIndex = 13;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(424, 392);
-            label5.Name = "label5";
-            label5.Size = new Size(131, 20);
-            label5.TabIndex = 14;
-            label5.Text = "Historial de pasos:";
             // 
             // FrmPrincipal
             // 
