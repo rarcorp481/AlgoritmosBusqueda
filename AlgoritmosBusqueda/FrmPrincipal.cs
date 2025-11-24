@@ -32,7 +32,8 @@ namespace AlgoritmosBusqueda
         private void label6_Click(object sender, EventArgs e) { }
         private void lstBinaria_SelectedIndexChanged(object sender, EventArgs e) { }
         private void txtBinariaInput_TextChanged(object sender, EventArgs e) { }
-
+        private void txtParrafo_TextChanged(object sender, EventArgs e) { }
+        private void txtPalabra_TextChanged(object sender, EventArgs e) { }
 
 
 
@@ -77,6 +78,7 @@ namespace AlgoritmosBusqueda
                 lstLineal.Items.Add($"[{i}]  ->  {arregloLineal[i]}");
             }
         }
+
 
 
 
@@ -160,17 +162,8 @@ namespace AlgoritmosBusqueda
 
 
 
+
         //Ejercicio 3: Búsqueda de texto en un párrafo
-        private void txtParrafo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPalabra_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCargarTexto_Click(object sender, EventArgs e)
         {
             // Texto largo para llenar tu TextBox grande
@@ -241,6 +234,103 @@ namespace AlgoritmosBusqueda
             txtParrafo.DeselectAll();
             lblResultadoTexto.Text = $"La palabra '{txtPalabra.Text}' aparece {contadorCoincidencias} veces.";
         }
+
+
+
+
+
+        // Ejercicio 4: Búsqueda de objetos en una lista
+        private void btnCargarEstudiantes_Click(object sender, EventArgs e)
+        {
+            listaEstudiantes.Clear();
+
+            // Carga de datos de prueba
+            listaEstudiantes.Add(new Estudiante { Id = 10, Nombre = "Carlos" });
+            listaEstudiantes.Add(new Estudiante { Id = 5, Nombre = "Ana" });
+            listaEstudiantes.Add(new Estudiante { Id = 3, Nombre = "Zack" });
+            listaEstudiantes.Add(new Estudiante { Id = 8, Nombre = "Beto" });
+            listaEstudiantes.Add(new Estudiante { Id = 1, Nombre = "Maria" });
+            listaEstudiantes.Add(new Estudiante { Id = 20, Nombre = "Luis" });
+            listaEstudiantes.Add(new Estudiante { Id = 15, Nombre = "Dora" });
+            listaEstudiantes.Add(new Estudiante { Id = 7, Nombre = "Elena" });
+            listaEstudiantes.Add(new Estudiante { Id = 4, Nombre = "Pedro" });
+            listaEstudiantes.Add(new Estudiante { Id = 2, Nombre = "Juan" });
+
+            lstEstudiantes.Items.Clear();
+            foreach (var est in listaEstudiantes) lstEstudiantes.Items.Add(est);
+        }
+
+        private void btnBuscarID_Click(object sender, EventArgs e)
+        {
+            if (listaEstudiantes.Count == 0) return;
+
+            if (int.TryParse(txtObjetoInput.Text, out int idBuscado))
+            {
+                bool encontrado = false;
+                lstEstudiantes.SelectedIndex = -1;
+
+                // Recorrido secuencial (Lineal)
+                for (int i = 0; i < listaEstudiantes.Count; i++)
+                {
+                    if (listaEstudiantes[i].Id == idBuscado)
+                    {
+                        lstEstudiantes.SelectedIndex = i; // Resaltar coincidencia
+                        MessageBox.Show($"Encontrado: {listaEstudiantes[i].Nombre}");
+                        encontrado = true;
+                        break;
+                    }
+                }
+
+                if (!encontrado) MessageBox.Show("ID no encontrado.");
+            }
+            else             {
+                MessageBox.Show("Ingrese un ID válido.");
+            }
+        }
+
+        private void btnBuscarNombre_Click(object sender, EventArgs e)
+        {
+            if (listaEstudiantes.Count == 0) return;
+
+            string nombreBuscado = txtObjetoInput.Text;
+            lstEstudiantes.SelectedIndex = -1;
+
+            // Ordenar lista por Nombre 
+            listaEstudiantes.Sort((x, y) => string.Compare(x.Nombre, y.Nombre));
+
+            // Refrescar ListBox con el nuevo orden
+            lstEstudiantes.Items.Clear();
+            foreach (var est in listaEstudiantes) lstEstudiantes.Items.Add(est);
+
+            int inicio = 0;
+            int fin = listaEstudiantes.Count - 1;
+            bool encontrado = false;
+
+            // Algoritmo Binario
+            while (inicio <= fin)
+            {
+                int medio = (inicio + fin) / 2;
+                string nombreMedio = listaEstudiantes[medio].Nombre;
+
+                // Comparar ignorando mayúsculas/minúsculas
+                int comparacion = string.Compare(nombreMedio, nombreBuscado, StringComparison.OrdinalIgnoreCase);
+
+                if (comparacion == 0)
+                {
+                    lstEstudiantes.SelectedIndex = medio; // Resaltar coincidencia
+                    MessageBox.Show($"Encontrado ID: {listaEstudiantes[medio].Id}");
+                    encontrado = true;
+                    break;
+                }
+
+                if (comparacion < 0)
+                    inicio = medio + 1; // Buscar en la mitad derecha
+                else
+                    fin = medio - 1;    // Buscar en la mitad izquierda
+            }
+
+            if (!encontrado) MessageBox.Show("Nombre no encontrado.");
+        }
     }
 
 }
@@ -251,5 +341,9 @@ public class Estudiante
 {
     public int Id { get; set; }
     public string Nombre { get; set; }
-    public override string ToString() { return Id + " - " + Nombre; }
+
+    public override string ToString()
+    {
+        return $"{Id} - {Nombre}";
+    }
 }
