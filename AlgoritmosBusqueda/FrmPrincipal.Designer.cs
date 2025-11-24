@@ -47,6 +47,7 @@ namespace AlgoritmosBusqueda
             txtBinariaInput = new TextBox();
             lstBinaria = new ListBox();
             TextSearch = new TabPage();
+            txtParrafo = new RichTextBox();
             lblResultadoTexto = new Label();
             label7 = new Label();
             txtPalabra = new TextBox();
@@ -54,13 +55,20 @@ namespace AlgoritmosBusqueda
             btnCargarTexto = new Button();
             label6 = new Label();
             ObjectSearch = new TabPage();
+            label9 = new Label();
+            btnBuscarNombre = new Button();
+            btnBuscarID = new Button();
+            label8 = new Label();
+            btnCargarEstudiantes = new Button();
+            txtObjetoInput = new TextBox();
+            lstEstudiantes = new ListBox();
             ValueSearch = new TabPage();
             MatrixSearch = new TabPage();
-            txtParrafo = new RichTextBox();
             TabControl1.SuspendLayout();
             LinearSearch.SuspendLayout();
             BinarySearch.SuspendLayout();
             TextSearch.SuspendLayout();
+            ObjectSearch.SuspendLayout();
             SuspendLayout();
             // 
             // TabControl1
@@ -266,6 +274,14 @@ namespace AlgoritmosBusqueda
             TextSearch.UseVisualStyleBackColor = true;
             TextSearch.Click += TextSearch_Click;
             // 
+            // txtParrafo
+            // 
+            txtParrafo.Location = new Point(42, 82);
+            txtParrafo.Name = "txtParrafo";
+            txtParrafo.Size = new Size(447, 443);
+            txtParrafo.TabIndex = 7;
+            txtParrafo.Text = "";
+            // 
             // lblResultadoTexto
             // 
             lblResultadoTexto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -325,6 +341,13 @@ namespace AlgoritmosBusqueda
             // 
             // ObjectSearch
             // 
+            ObjectSearch.Controls.Add(label9);
+            ObjectSearch.Controls.Add(btnBuscarNombre);
+            ObjectSearch.Controls.Add(btnBuscarID);
+            ObjectSearch.Controls.Add(label8);
+            ObjectSearch.Controls.Add(btnCargarEstudiantes);
+            ObjectSearch.Controls.Add(txtObjetoInput);
+            ObjectSearch.Controls.Add(lstEstudiantes);
             ObjectSearch.Location = new Point(4, 29);
             ObjectSearch.Name = "ObjectSearch";
             ObjectSearch.Padding = new Padding(3);
@@ -333,6 +356,71 @@ namespace AlgoritmosBusqueda
             ObjectSearch.Text = "Objeto";
             ObjectSearch.UseVisualStyleBackColor = true;
             ObjectSearch.Click += ObjectSearch_Click;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(496, 83);
+            label9.Name = "label9";
+            label9.Size = new Size(256, 23);
+            label9.TabIndex = 8;
+            label9.Text = "Ingresa los datos del estudiante:";
+            // 
+            // btnBuscarNombre
+            // 
+            btnBuscarNombre.Location = new Point(541, 321);
+            btnBuscarNombre.Name = "btnBuscarNombre";
+            btnBuscarNombre.Size = new Size(197, 55);
+            btnBuscarNombre.TabIndex = 7;
+            btnBuscarNombre.Text = "Buscar por Nombre";
+            btnBuscarNombre.UseVisualStyleBackColor = true;
+            btnBuscarNombre.Click += btnBuscarNombre_Click;
+            // 
+            // btnBuscarID
+            // 
+            btnBuscarID.Location = new Point(541, 247);
+            btnBuscarID.Name = "btnBuscarID";
+            btnBuscarID.Size = new Size(197, 55);
+            btnBuscarID.TabIndex = 6;
+            btnBuscarID.Text = "Buscar por ID";
+            btnBuscarID.UseVisualStyleBackColor = true;
+            btnBuscarID.Click += btnBuscarID_Click;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(66, 37);
+            label8.Name = "label8";
+            label8.Size = new Size(164, 23);
+            label8.TabIndex = 5;
+            label8.Text = "Lista de estudiantes:";
+            // 
+            // btnCargarEstudiantes
+            // 
+            btnCargarEstudiantes.Location = new Point(541, 172);
+            btnCargarEstudiantes.Name = "btnCargarEstudiantes";
+            btnCargarEstudiantes.Size = new Size(197, 55);
+            btnCargarEstudiantes.TabIndex = 2;
+            btnCargarEstudiantes.Text = "Cargar Datos";
+            btnCargarEstudiantes.UseVisualStyleBackColor = true;
+            btnCargarEstudiantes.Click += btnCargarEstudiantes_Click;
+            // 
+            // txtObjetoInput
+            // 
+            txtObjetoInput.Location = new Point(498, 124);
+            txtObjetoInput.Name = "txtObjetoInput";
+            txtObjetoInput.Size = new Size(283, 27);
+            txtObjetoInput.TabIndex = 1;
+            // 
+            // lstEstudiantes
+            // 
+            lstEstudiantes.FormattingEnabled = true;
+            lstEstudiantes.Location = new Point(66, 83);
+            lstEstudiantes.Name = "lstEstudiantes";
+            lstEstudiantes.Size = new Size(353, 444);
+            lstEstudiantes.TabIndex = 0;
             // 
             // ValueSearch
             // 
@@ -356,14 +444,6 @@ namespace AlgoritmosBusqueda
             MatrixSearch.UseVisualStyleBackColor = true;
             MatrixSearch.Click += MatrixSearch_Click;
             // 
-            // txtParrafo
-            // 
-            txtParrafo.Location = new Point(42, 82);
-            txtParrafo.Name = "txtParrafo";
-            txtParrafo.Size = new Size(447, 443);
-            txtParrafo.TabIndex = 7;
-            txtParrafo.Text = "";
-            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -379,6 +459,8 @@ namespace AlgoritmosBusqueda
             BinarySearch.PerformLayout();
             TextSearch.ResumeLayout(false);
             TextSearch.PerformLayout();
+            ObjectSearch.ResumeLayout(false);
+            ObjectSearch.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -414,5 +496,12 @@ namespace AlgoritmosBusqueda
         private Label label7;
         private Label lblResultadoTexto;
         private RichTextBox txtParrafo;
+        private Label label9;
+        private Button btnBuscarNombre;
+        private Button btnBuscarID;
+        private Label label8;
+        private Button btnCargarEstudiantes;
+        private TextBox txtObjetoInput;
+        private ListBox lstEstudiantes;
     }
 }
