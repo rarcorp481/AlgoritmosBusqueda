@@ -69,12 +69,20 @@ namespace AlgoritmosBusqueda
             btnCalcularMinMax = new Button();
             lstNumerosMinMax = new ListBox();
             MatrixSearch = new TabPage();
+            rtbMatriz = new RichTextBox();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            btnBuscarMatriz = new Button();
+            btnGenerarMatriz = new Button();
+            txtMatrizInput = new TextBox();
             TabControl1.SuspendLayout();
             LinearSearch.SuspendLayout();
             BinarySearch.SuspendLayout();
             TextSearch.SuspendLayout();
             ObjectSearch.SuspendLayout();
             ValueSearch.SuspendLayout();
+            MatrixSearch.SuspendLayout();
             SuspendLayout();
             // 
             // TabControl1
@@ -492,6 +500,13 @@ namespace AlgoritmosBusqueda
             // 
             // MatrixSearch
             // 
+            MatrixSearch.Controls.Add(label13);
+            MatrixSearch.Controls.Add(btnBuscarMatriz);
+            MatrixSearch.Controls.Add(btnGenerarMatriz);
+            MatrixSearch.Controls.Add(txtMatrizInput);
+            MatrixSearch.Controls.Add(label12);
+            MatrixSearch.Controls.Add(label11);
+            MatrixSearch.Controls.Add(rtbMatriz);
             MatrixSearch.Location = new Point(4, 29);
             MatrixSearch.Name = "MatrixSearch";
             MatrixSearch.Padding = new Padding(3);
@@ -500,6 +515,70 @@ namespace AlgoritmosBusqueda
             MatrixSearch.Text = "Matriz 2D";
             MatrixSearch.UseVisualStyleBackColor = true;
             MatrixSearch.Click += MatrixSearch_Click;
+            // 
+            // rtbMatriz
+            // 
+            rtbMatriz.Location = new Point(53, 98);
+            rtbMatriz.Name = "rtbMatriz";
+            rtbMatriz.Size = new Size(426, 422);
+            rtbMatriz.TabIndex = 0;
+            rtbMatriz.Text = "";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(0, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(58, 20);
+            label11.TabIndex = 1;
+            label11.Text = "label11";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.Location = new Point(53, 49);
+            label12.Name = "label12";
+            label12.Size = new Size(72, 28);
+            label12.TabIndex = 2;
+            label12.Text = "Matriz:";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.Location = new Point(519, 99);
+            label13.Name = "label13";
+            label13.Size = new Size(256, 23);
+            label13.TabIndex = 13;
+            label13.Text = "Ingresa los datos del estudiante:";
+            // 
+            // btnBuscarMatriz
+            // 
+            btnBuscarMatriz.Location = new Point(564, 263);
+            btnBuscarMatriz.Name = "btnBuscarMatriz";
+            btnBuscarMatriz.Size = new Size(197, 55);
+            btnBuscarMatriz.TabIndex = 11;
+            btnBuscarMatriz.Text = "Buscar";
+            btnBuscarMatriz.UseVisualStyleBackColor = true;
+            btnBuscarMatriz.Click += btnBuscarMatriz_Click;
+            // 
+            // btnGenerarMatriz
+            // 
+            btnGenerarMatriz.Location = new Point(564, 188);
+            btnGenerarMatriz.Name = "btnGenerarMatriz";
+            btnGenerarMatriz.Size = new Size(197, 55);
+            btnGenerarMatriz.TabIndex = 10;
+            btnGenerarMatriz.Text = "Generar Matriz";
+            btnGenerarMatriz.UseVisualStyleBackColor = true;
+            btnGenerarMatriz.Click += btnGenerarMatriz_Click;
+            // 
+            // txtMatrizInput
+            // 
+            txtMatrizInput.Location = new Point(521, 140);
+            txtMatrizInput.Name = "txtMatrizInput";
+            txtMatrizInput.Size = new Size(283, 27);
+            txtMatrizInput.TabIndex = 9;
             // 
             // FrmPrincipal
             // 
@@ -520,6 +599,8 @@ namespace AlgoritmosBusqueda
             ObjectSearch.PerformLayout();
             ValueSearch.ResumeLayout(false);
             ValueSearch.PerformLayout();
+            MatrixSearch.ResumeLayout(false);
+            MatrixSearch.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -567,5 +648,12 @@ namespace AlgoritmosBusqueda
         private ListBox lstNumerosMinMax;
         private Label lblResultadosMinMax;
         private Label label10;
+        private Label label13;
+        private Button btnBuscarMatriz;
+        private Button btnGenerarMatriz;
+        private TextBox txtMatrizInput;
+        private Label label12;
+        private Label label11;
+        private RichTextBox rtbMatriz;
     }
 }

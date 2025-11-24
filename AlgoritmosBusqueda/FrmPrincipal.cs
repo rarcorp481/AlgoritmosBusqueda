@@ -390,6 +390,81 @@ namespace AlgoritmosBusqueda
 
 
 
+
+        //Ejercicio 6: Búsqueda en una matriz 10x10
+        private void btnGenerarMatriz_Click(object sender, EventArgs e)
+        {
+            rtbMatriz.Clear();
+            Random rnd = new Random();
+
+            // Llenar la matriz global de 10x10 declarada al inicio
+            for (int fila = 0; fila < 10; fila++)
+            {
+                for (int col = 0; col < 10; col++)
+                {
+                    matrizGlobal[fila, col] = rnd.Next(1, 100);
+
+                    // PadLeft(4) asegura que cada número ocupe el mismo espacio visual
+                    rtbMatriz.AppendText(matrizGlobal[fila, col].ToString().PadLeft(4));
+                }
+                rtbMatriz.AppendText("\n"); // Salto de línea al terminar cada fila
+            }
+        }
+
+        private void btnBuscarMatriz_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(rtbMatriz.Text))
+            {
+                MessageBox.Show("Genera la matriz primero.");
+                return;
+            }
+
+            if (int.TryParse(txtMatrizInput.Text, out int numeroBuscado))
+            {
+                // 1. Limpieza visual (quitar resaltados previos)
+                rtbMatriz.SelectAll();
+                rtbMatriz.SelectionBackColor = Color.White;
+                rtbMatriz.DeselectAll();
+
+                string coordenadasEncontradas = "";
+                bool encontrado = false;
+
+                for (int fila = 0; fila < 10; fila++)
+                {
+                    for (int col = 0; col < 10; col++)
+                    {
+                        if (matrizGlobal[fila, col] == numeroBuscado)
+                        {
+                            coordenadasEncontradas += $"[{fila},{col}] ";
+                            encontrado = true;
+
+                            // --- CÁLCULO DE POSICIÓN ---
+                            // (Fila actual * 41 caracteres) + (Columna actual * 4 caracteres)
+                            int indiceTexto = (fila * 41) + (col * 4);
+
+                            // Seleccionamos el bloque de 4 espacios y lo pintamos
+                            rtbMatriz.Select(indiceTexto, 4);
+                            rtbMatriz.SelectionBackColor = Color.Yellow;
+                        }
+                    }
+                }
+
+                rtbMatriz.DeselectAll(); // Quitar la selección azul final
+
+                if (encontrado)
+                {
+                    MessageBox.Show($"Número encontrado en:\n{coordenadasEncontradas}");
+                }
+                else
+                {
+                    MessageBox.Show("El número no existe en la matriz.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingresa un número válido.");
+            }
+        }
     }
 
 
