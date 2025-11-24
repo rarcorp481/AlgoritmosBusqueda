@@ -73,6 +73,7 @@ namespace AlgoritmosBusqueda
                         if (arregloLineal[i] == buscado)
                         {
                             MessageBox.Show($"¡Encontrado en posición {i}!");
+                            lstLineal.SelectedIndex = i;
                             encontrado = true;
                             break;
                         }
@@ -96,6 +97,10 @@ namespace AlgoritmosBusqueda
                 lstLineal.Items.Add($"{i})   {arregloLineal[i]}");
             }
         }
+
+        // Ejercicio 2: Búsqueda Binaria
+
+
     }
 
 }
