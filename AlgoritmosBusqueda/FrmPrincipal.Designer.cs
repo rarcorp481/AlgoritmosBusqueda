@@ -47,12 +47,20 @@ namespace AlgoritmosBusqueda
             txtBinariaInput = new TextBox();
             lstBinaria = new ListBox();
             TextSearch = new TabPage();
+            lblResultadoTexto = new Label();
+            label7 = new Label();
+            txtPalabra = new TextBox();
+            btnBuscarTexto = new Button();
+            btnCargarTexto = new Button();
+            label6 = new Label();
             ObjectSearch = new TabPage();
             ValueSearch = new TabPage();
             MatrixSearch = new TabPage();
+            txtParrafo = new RichTextBox();
             TabControl1.SuspendLayout();
             LinearSearch.SuspendLayout();
             BinarySearch.SuspendLayout();
+            TextSearch.SuspendLayout();
             SuspendLayout();
             // 
             // TabControl1
@@ -113,7 +121,7 @@ namespace AlgoritmosBusqueda
             label2.Location = new Point(63, 45);
             label2.Name = "label2";
             label2.Size = new Size(194, 20);
-            label2.TabIndex = 3;
+            label2.TabIndex = 0;
             label2.Text = "Lista de números aleatorios:";
             label2.Click += label2_Click;
             // 
@@ -141,7 +149,7 @@ namespace AlgoritmosBusqueda
             lstLineal.Location = new Point(63, 77);
             lstLineal.Name = "lstLineal";
             lstLineal.Size = new Size(373, 464);
-            lstLineal.TabIndex = 0;
+            lstLineal.TabIndex = 1;
             lstLineal.SelectedIndexChanged += lstLineal_SelectedIndexChanged;
             // 
             // BinarySearch
@@ -242,6 +250,13 @@ namespace AlgoritmosBusqueda
             // 
             // TextSearch
             // 
+            TextSearch.Controls.Add(txtParrafo);
+            TextSearch.Controls.Add(lblResultadoTexto);
+            TextSearch.Controls.Add(label7);
+            TextSearch.Controls.Add(txtPalabra);
+            TextSearch.Controls.Add(btnBuscarTexto);
+            TextSearch.Controls.Add(btnCargarTexto);
+            TextSearch.Controls.Add(label6);
             TextSearch.Location = new Point(4, 29);
             TextSearch.Name = "TextSearch";
             TextSearch.Padding = new Padding(3);
@@ -250,6 +265,63 @@ namespace AlgoritmosBusqueda
             TextSearch.Text = "Texto";
             TextSearch.UseVisualStyleBackColor = true;
             TextSearch.Click += TextSearch_Click;
+            // 
+            // lblResultadoTexto
+            // 
+            lblResultadoTexto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblResultadoTexto.Location = new Point(553, 422);
+            lblResultadoTexto.Name = "lblResultadoTexto";
+            lblResultadoTexto.Size = new Size(242, 66);
+            lblResultadoTexto.TabIndex = 6;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(539, 81);
+            label7.Name = "label7";
+            label7.Size = new Size(144, 25);
+            label7.TabIndex = 5;
+            label7.Text = "Palabra a buscar:";
+            // 
+            // txtPalabra
+            // 
+            txtPalabra.Location = new Point(539, 123);
+            txtPalabra.Name = "txtPalabra";
+            txtPalabra.Size = new Size(270, 27);
+            txtPalabra.TabIndex = 4;
+            txtPalabra.TextChanged += txtPalabra_TextChanged;
+            // 
+            // btnBuscarTexto
+            // 
+            btnBuscarTexto.Location = new Point(571, 276);
+            btnBuscarTexto.Name = "btnBuscarTexto";
+            btnBuscarTexto.Size = new Size(185, 73);
+            btnBuscarTexto.TabIndex = 3;
+            btnBuscarTexto.Text = "Buscar y Contar";
+            btnBuscarTexto.UseVisualStyleBackColor = true;
+            btnBuscarTexto.Click += btnBuscarTexto_Click;
+            // 
+            // btnCargarTexto
+            // 
+            btnCargarTexto.Location = new Point(571, 176);
+            btnCargarTexto.Name = "btnCargarTexto";
+            btnCargarTexto.Size = new Size(185, 73);
+            btnCargarTexto.TabIndex = 2;
+            btnCargarTexto.Text = "Cargar Ejemplo";
+            btnCargarTexto.UseVisualStyleBackColor = true;
+            btnCargarTexto.Click += btnCargarTexto_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(42, 40);
+            label6.Name = "label6";
+            label6.Size = new Size(72, 25);
+            label6.TabIndex = 1;
+            label6.Text = "Párrafo:";
+            label6.Click += label6_Click;
             // 
             // ObjectSearch
             // 
@@ -284,6 +356,14 @@ namespace AlgoritmosBusqueda
             MatrixSearch.UseVisualStyleBackColor = true;
             MatrixSearch.Click += MatrixSearch_Click;
             // 
+            // txtParrafo
+            // 
+            txtParrafo.Location = new Point(42, 82);
+            txtParrafo.Name = "txtParrafo";
+            txtParrafo.Size = new Size(447, 443);
+            txtParrafo.TabIndex = 7;
+            txtParrafo.Text = "";
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -297,6 +377,8 @@ namespace AlgoritmosBusqueda
             LinearSearch.PerformLayout();
             BinarySearch.ResumeLayout(false);
             BinarySearch.PerformLayout();
+            TextSearch.ResumeLayout(false);
+            TextSearch.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -325,5 +407,12 @@ namespace AlgoritmosBusqueda
         private ListBox lstBinaria;
         private Label label5;
         private ListBox lstPasosBinaria;
+        private Button btnBuscarTexto;
+        private Button btnCargarTexto;
+        private Label label6;
+        private TextBox txtPalabra;
+        private Label label7;
+        private Label lblResultadoTexto;
+        private RichTextBox txtParrafo;
     }
 }
