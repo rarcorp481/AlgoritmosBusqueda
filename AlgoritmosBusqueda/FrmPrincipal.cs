@@ -17,59 +17,25 @@ namespace AlgoritmosBusqueda
 
         }
 
-        private void BinarySearch_Click(object sender, EventArgs e)
-        {
+        private void BinarySearch_Click(object sender, EventArgs e) { }
+        private void LinearSearch_Click(object sender, EventArgs e) { }
+        private void TextSearch_Click(object sender, EventArgs e) { }
+        private void ObjectSearch_Click(object sender, EventArgs e) { }
+        private void ValueSearch_Click(object sender, EventArgs e) { }
+        private void MatrixSearch_Click(object sender, EventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+        private void label2_Click(object sender, EventArgs e) { }
+        private void label3_Click(object sender, EventArgs e) { }
+        private void lstLineal_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void txtLinealInput_TextChanged(object sender, EventArgs e) { }
+        private void lstPasosBinaria_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void label6_Click(object sender, EventArgs e) { }
+        private void lstBinaria_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void txtBinariaInput_TextChanged(object sender, EventArgs e) { }
 
-        }
 
-        private void LinearSearch_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void TextSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ObjectSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ValueSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MatrixSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lstLineal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtLinealInput_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         // Ejercicio 1: Búsqueda Lineal
 
         private void btnBuscarLinear_Click(object sender, EventArgs e)
@@ -113,17 +79,9 @@ namespace AlgoritmosBusqueda
         }
 
 
+
+
         // Ejercicio 2: Búsqueda Binaria
-        private void lstBinaria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBinariaInput_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnGenerarBinaria_Click(object sender, EventArgs e)
         {
             lstBinaria.Items.Clear();
@@ -169,7 +127,7 @@ namespace AlgoritmosBusqueda
                     //Pausa de 2000 ms para que se vea el proceso
                     Application.DoEvents(); // Actualiza la pantalla
                     System.Threading.Thread.Sleep(2000);
-                    
+
 
                     if (valorMedio == buscado)
                     {
@@ -199,11 +157,90 @@ namespace AlgoritmosBusqueda
             }
         }
 
-        private void lstPasosBinaria_SelectedIndexChanged(object sender, EventArgs e)
+
+
+
+        //Ejercicio 3: Búsqueda de texto en un párrafo
+        private void txtParrafo_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+        private void txtPalabra_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCargarTexto_Click(object sender, EventArgs e)
+        {
+            // Texto largo para llenar tu TextBox grande
+            txtParrafo.Text =
+                "En el mundo del desarrollo de software, el código es la base de todo. " +
+                "Un buen código no solo funciona, sino que es limpio y fácil de mantener. " +
+                "Muchos programadores creen que escribir código rápido es mejor, pero " +
+                "la realidad es que un código ordenado ahorra horas de depuración. " +
+                "Cuando revisas el código de otra persona, aprendes nuevas técnicas. " +
+                "El código fuente debe ser tratado como una obra de arte técnica. " +
+                "Sin código, no existirían las aplicaciones que usamos a diario. " +
+                "Recuerda siempre comentar tu código para que otros lo entiendan.";
+
+            // Palabra sugerida para buscar
+            txtPalabra.Text = "código";
+
+            // Resetear label de resultado
+            lblResultadoTexto.Text = "Resultado: -";
+        }
+
+        private void btnBuscarTexto_Click(object sender, EventArgs e)
+        {
+            string textoCompleto = txtParrafo.Text.ToLower();
+            string palabraBusqueda = txtPalabra.Text.ToLower();
+
+            if (string.IsNullOrEmpty(textoCompleto) || string.IsNullOrEmpty(palabraBusqueda))
+            {
+                MessageBox.Show("Ingresa texto y palabra primero.");
+                return;
+            }
+
+            // Limpiar resaltados previos (resetear a blanco)
+            txtParrafo.SelectAll();
+            txtParrafo.SelectionBackColor = Color.White;
+            txtParrafo.DeselectAll();
+
+            int contadorCoincidencias = 0;
+            int longitudTexto = textoCompleto.Length;
+            int longitudPalabra = palabraBusqueda.Length;
+
+            // Recorrer el texto principal posición por posición
+            for (int indiceTexto = 0; indiceTexto <= longitudTexto - longitudPalabra; indiceTexto++)
+            {
+                int indicePalabra;
+
+                // Comparar carácter por carácter con la palabra buscada
+                for (indicePalabra = 0; indicePalabra < longitudPalabra; indicePalabra++)
+                {
+                    // Si un carácter no coincide, rompemos el ciclo interno
+                    if (textoCompleto[indiceTexto + indicePalabra] != palabraBusqueda[indicePalabra])
+                    {
+                        break;
+                    }
+                }
+
+                // Si el índice llegó al final, significa que todos los caracteres coincidieron
+                if (indicePalabra == longitudPalabra)
+                {
+                    contadorCoincidencias++;
+
+                    // Seleccionar y resaltar en amarillo la coincidencia encontrada
+                    txtParrafo.Select(indiceTexto, longitudPalabra);
+                    txtParrafo.SelectionBackColor = Color.Yellow;
+                }
+            }
+
+            // Quitar la selección final para limpieza visual
+            txtParrafo.DeselectAll();
+            lblResultadoTexto.Text = $"La palabra '{txtPalabra.Text}' aparece {contadorCoincidencias} veces.";
+        }
     }
 
 }
