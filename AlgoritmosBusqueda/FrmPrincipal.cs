@@ -2,19 +2,21 @@ namespace AlgoritmosBusqueda
 {
     public partial class FrmPrincipal : Form
     {
+
         public FrmPrincipal()
         {
             InitializeComponent();
+
         }
 
         private void BinarySearch_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void LinearSearch_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void TextSearch_Click(object sender, EventArgs e)
@@ -36,7 +38,24 @@ namespace AlgoritmosBusqueda
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarLinear_Click(object sender, EventArgs e)
+        {
+ 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
+
 }
 
 // Clase estudiantes
