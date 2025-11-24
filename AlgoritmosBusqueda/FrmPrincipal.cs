@@ -83,7 +83,7 @@ namespace AlgoritmosBusqueda
                 else MessageBox.Show("Ingrese un número válido.");
             }
 
-            
+
         }
 
         private void btnGenerateLinear_Click(object sender, EventArgs e)
@@ -93,9 +93,14 @@ namespace AlgoritmosBusqueda
 
             for (int i = 0; i < 20; i++)
             {
-                arregloLineal[i] = rnd.Next(1, 100); 
+                arregloLineal[i] = rnd.Next(1, 100);
                 lstLineal.Items.Add($"{i})   {arregloLineal[i]}");
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
 
         // Ejercicio 2: Búsqueda Binaria

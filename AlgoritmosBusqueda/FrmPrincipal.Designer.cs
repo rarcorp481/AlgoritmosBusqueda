@@ -31,19 +31,28 @@ namespace AlgoritmosBusqueda
         {
             TabControl1 = new TabControl();
             LinearSearch = new TabPage();
+            btnGenerateLinear = new Button();
             btnBuscarLinear = new Button();
             label2 = new Label();
             label1 = new Label();
             txtLinealInput = new TextBox();
             lstLineal = new ListBox();
             BinarySearch = new TabPage();
+            btnGenerarBinaria = new Button();
+            btnBuscarBinaria = new Button();
+            label3 = new Label();
+            label4 = new Label();
+            txtBinariaInput = new TextBox();
+            lstBinaria = new ListBox();
             TextSearch = new TabPage();
             ObjectSearch = new TabPage();
             ValueSearch = new TabPage();
             MatrixSearch = new TabPage();
-            btnGenerateLinear = new Button();
+            lstPasosBinaria = new ListBox();
+            label5 = new Label();
             TabControl1.SuspendLayout();
             LinearSearch.SuspendLayout();
+            BinarySearch.SuspendLayout();
             SuspendLayout();
             // 
             // TabControl1
@@ -58,7 +67,7 @@ namespace AlgoritmosBusqueda
             TabControl1.Location = new Point(0, 0);
             TabControl1.Name = "TabControl1";
             TabControl1.SelectedIndex = 0;
-            TabControl1.Size = new Size(949, 589);
+            TabControl1.Size = new Size(860, 624);
             TabControl1.TabIndex = 0;
             // 
             // LinearSearch
@@ -72,15 +81,25 @@ namespace AlgoritmosBusqueda
             LinearSearch.Location = new Point(4, 29);
             LinearSearch.Name = "LinearSearch";
             LinearSearch.Padding = new Padding(3);
-            LinearSearch.Size = new Size(941, 556);
+            LinearSearch.Size = new Size(852, 591);
             LinearSearch.TabIndex = 0;
             LinearSearch.Text = "Lineal";
             LinearSearch.UseVisualStyleBackColor = true;
             LinearSearch.Click += LinearSearch_Click;
             // 
+            // btnGenerateLinear
+            // 
+            btnGenerateLinear.Location = new Point(538, 215);
+            btnGenerateLinear.Name = "btnGenerateLinear";
+            btnGenerateLinear.Size = new Size(229, 87);
+            btnGenerateLinear.TabIndex = 6;
+            btnGenerateLinear.Text = "Generar 20 números";
+            btnGenerateLinear.UseVisualStyleBackColor = true;
+            btnGenerateLinear.Click += btnGenerateLinear_Click;
+            // 
             // btnBuscarLinear
             // 
-            btnBuscarLinear.Location = new Point(568, 306);
+            btnBuscarLinear.Location = new Point(538, 321);
             btnBuscarLinear.Name = "btnBuscarLinear";
             btnBuscarLinear.Size = new Size(229, 87);
             btnBuscarLinear.TabIndex = 5;
@@ -91,7 +110,7 @@ namespace AlgoritmosBusqueda
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(93, 30);
+            label2.Location = new Point(63, 45);
             label2.Name = "label2";
             label2.Size = new Size(194, 20);
             label2.TabIndex = 3;
@@ -101,7 +120,7 @@ namespace AlgoritmosBusqueda
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(547, 78);
+            label1.Location = new Point(517, 93);
             label1.Name = "label1";
             label1.Size = new Size(260, 20);
             label1.TabIndex = 2;
@@ -110,7 +129,7 @@ namespace AlgoritmosBusqueda
             // 
             // txtLinealInput
             // 
-            txtLinealInput.Location = new Point(547, 119);
+            txtLinealInput.Location = new Point(517, 134);
             txtLinealInput.Name = "txtLinealInput";
             txtLinealInput.Size = new Size(268, 27);
             txtLinealInput.TabIndex = 1;
@@ -118,21 +137,83 @@ namespace AlgoritmosBusqueda
             // lstLineal
             // 
             lstLineal.FormattingEnabled = true;
-            lstLineal.Location = new Point(93, 62);
+            lstLineal.Location = new Point(63, 77);
             lstLineal.Name = "lstLineal";
             lstLineal.Size = new Size(373, 464);
             lstLineal.TabIndex = 0;
             // 
             // BinarySearch
             // 
+            BinarySearch.Controls.Add(label5);
+            BinarySearch.Controls.Add(lstPasosBinaria);
+            BinarySearch.Controls.Add(btnGenerarBinaria);
+            BinarySearch.Controls.Add(btnBuscarBinaria);
+            BinarySearch.Controls.Add(label3);
+            BinarySearch.Controls.Add(label4);
+            BinarySearch.Controls.Add(txtBinariaInput);
+            BinarySearch.Controls.Add(lstBinaria);
             BinarySearch.Location = new Point(4, 29);
             BinarySearch.Name = "BinarySearch";
             BinarySearch.Padding = new Padding(3);
-            BinarySearch.Size = new Size(941, 556);
+            BinarySearch.Size = new Size(852, 591);
             BinarySearch.TabIndex = 1;
             BinarySearch.Text = "Binaria";
             BinarySearch.UseVisualStyleBackColor = true;
             BinarySearch.Click += BinarySearch_Click;
+            // 
+            // btnGenerarBinaria
+            // 
+            btnGenerarBinaria.Location = new Point(493, 157);
+            btnGenerarBinaria.Name = "btnGenerarBinaria";
+            btnGenerarBinaria.Size = new Size(229, 87);
+            btnGenerarBinaria.TabIndex = 12;
+            btnGenerarBinaria.Text = "Generar 30 números:";
+            btnGenerarBinaria.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscarBinaria
+            // 
+            btnBuscarBinaria.Location = new Point(493, 263);
+            btnBuscarBinaria.Name = "btnBuscarBinaria";
+            btnBuscarBinaria.Size = new Size(229, 87);
+            btnBuscarBinaria.TabIndex = 11;
+            btnBuscarBinaria.Text = "Buscar número";
+            btnBuscarBinaria.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(43, 32);
+            label3.Name = "label3";
+            label3.Size = new Size(124, 20);
+            label3.TabIndex = 10;
+            label3.Text = "Lista de números:";
+            label3.Click += label3_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(473, 47);
+            label4.Name = "label4";
+            label4.Size = new Size(260, 20);
+            label4.TabIndex = 9;
+            label4.Text = "Ingresa el número que deseas buscar: ";
+            // 
+            // txtBinariaInput
+            // 
+            txtBinariaInput.Location = new Point(473, 88);
+            txtBinariaInput.Name = "txtBinariaInput";
+            txtBinariaInput.Size = new Size(268, 27);
+            txtBinariaInput.TabIndex = 8;
+            // 
+            // lstBinaria
+            // 
+            lstBinaria.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lstBinaria.FormattingEnabled = true;
+            lstBinaria.ItemHeight = 23;
+            lstBinaria.Location = new Point(43, 66);
+            lstBinaria.Name = "lstBinaria";
+            lstBinaria.Size = new Size(334, 487);
+            lstBinaria.TabIndex = 7;
             // 
             // TextSearch
             // 
@@ -178,27 +259,37 @@ namespace AlgoritmosBusqueda
             MatrixSearch.UseVisualStyleBackColor = true;
             MatrixSearch.Click += MatrixSearch_Click;
             // 
-            // btnGenerateLinear
+            // lstPasosBinaria
             // 
-            btnGenerateLinear.Location = new Point(568, 200);
-            btnGenerateLinear.Name = "btnGenerateLinear";
-            btnGenerateLinear.Size = new Size(229, 87);
-            btnGenerateLinear.TabIndex = 6;
-            btnGenerateLinear.Text = "Generar 20 números";
-            btnGenerateLinear.UseVisualStyleBackColor = true;
-            btnGenerateLinear.Click += btnGenerateLinear_Click;
+            lstPasosBinaria.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lstPasosBinaria.FormattingEnabled = true;
+            lstPasosBinaria.Location = new Point(424, 434);
+            lstPasosBinaria.Name = "lstPasosBinaria";
+            lstPasosBinaria.Size = new Size(375, 124);
+            lstPasosBinaria.TabIndex = 13;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(424, 392);
+            label5.Name = "label5";
+            label5.Size = new Size(131, 20);
+            label5.TabIndex = 14;
+            label5.Text = "Historial de pasos:";
             // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(949, 589);
+            ClientSize = new Size(860, 624);
             Controls.Add(TabControl1);
             Name = "FrmPrincipal";
             Text = "Algoritmos de Búsqueda";
             TabControl1.ResumeLayout(false);
             LinearSearch.ResumeLayout(false);
             LinearSearch.PerformLayout();
+            BinarySearch.ResumeLayout(false);
+            BinarySearch.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -219,5 +310,13 @@ namespace AlgoritmosBusqueda
         private Button btnBuscarLinear;
         private Label label2;
         private Button btnGenerateLinear;
+        private Button btnGenerarBinaria;
+        private Button btnBuscarBinaria;
+        private Label label3;
+        private Label label4;
+        private TextBox txtBinariaInput;
+        private ListBox lstBinaria;
+        private Label label5;
+        private ListBox lstPasosBinaria;
     }
 }
