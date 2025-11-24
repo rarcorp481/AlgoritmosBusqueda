@@ -41,6 +41,7 @@ namespace AlgoritmosBusqueda
             ObjectSearch = new TabPage();
             ValueSearch = new TabPage();
             MatrixSearch = new TabPage();
+            btnGenerateLinear = new Button();
             TabControl1.SuspendLayout();
             LinearSearch.SuspendLayout();
             SuspendLayout();
@@ -62,6 +63,7 @@ namespace AlgoritmosBusqueda
             // 
             // LinearSearch
             // 
+            LinearSearch.Controls.Add(btnGenerateLinear);
             LinearSearch.Controls.Add(btnBuscarLinear);
             LinearSearch.Controls.Add(label2);
             LinearSearch.Controls.Add(label1);
@@ -78,7 +80,7 @@ namespace AlgoritmosBusqueda
             // 
             // btnBuscarLinear
             // 
-            btnBuscarLinear.Location = new Point(568, 188);
+            btnBuscarLinear.Location = new Point(568, 306);
             btnBuscarLinear.Name = "btnBuscarLinear";
             btnBuscarLinear.Size = new Size(229, 87);
             btnBuscarLinear.TabIndex = 5;
@@ -176,6 +178,16 @@ namespace AlgoritmosBusqueda
             MatrixSearch.UseVisualStyleBackColor = true;
             MatrixSearch.Click += MatrixSearch_Click;
             // 
+            // btnGenerateLinear
+            // 
+            btnGenerateLinear.Location = new Point(568, 200);
+            btnGenerateLinear.Name = "btnGenerateLinear";
+            btnGenerateLinear.Size = new Size(229, 87);
+            btnGenerateLinear.TabIndex = 6;
+            btnGenerateLinear.Text = "Generar 20 números";
+            btnGenerateLinear.UseVisualStyleBackColor = true;
+            btnGenerateLinear.Click += btnGenerateLinear_Click;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -206,5 +218,6 @@ namespace AlgoritmosBusqueda
         private TextBox txtLinealInput;
         private Button btnBuscarLinear;
         private Label label2;
+        private Button btnGenerateLinear;
     }
 }
